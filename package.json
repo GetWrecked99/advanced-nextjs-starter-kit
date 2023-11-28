@@ -1,27 +1,43 @@
 {
-  "name": "advanced-nextjs-starter-kit",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "14.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.10.0",
-    "@types/react": "^18.2.39",
-    "@types/react-dom": "^18.2.17",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.54.0",
-    "eslint-config-next": "14.0.3",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5.3.2"
-  }
+    "name": "advanced-nextjs-starter-kit",
+    "version": "0.1.0",
+    "private": true,
+    "engines": {
+        "node": ">=16.0.0",
+        "pnpm": ">=8.9.2",
+        "yarn": "please-use-pnpm",
+        "npm": "please-use-pnpm"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint ./src --max-warnings=0",
+        "prettier": "prettier --write .",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "next": "14.0.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^18.4.3",
+        "@commitlint/config-conventional": "^18.4.3",
+        "@svgr/webpack": "^8.1.0",
+        "@types/node": "^20.10.0",
+        "@types/react": "^18.2.39",
+        "@types/react-dom": "^18.2.17",
+        "@typescript-eslint/eslint-plugin": "^6.13.1",
+        "autoprefixer": "^10.4.16",
+        "eslint": "^8.54.0",
+        "eslint-config-next": "14.0.3",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
+        "husky": "^8.0.3",
+        "postcss": "^8.4.31",
+        "prettier": "^3.1.0",
+        "tailwindcss": "^3.3.5",
+        "typescript": "^5.3.2"
+    }
 }
