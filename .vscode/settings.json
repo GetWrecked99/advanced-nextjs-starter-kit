@@ -2,6 +2,8 @@
     // vscode general
     "scm.diffDecorationsIgnoreTrimWhitespace": "true",
     "files.trimTrailingWhitespace": true,
+    "css.lint.unknownAtRules": "ignore",
+    "explorer.compactFolders": false,
 
     // eslint extension options
     "eslint.enable": true,
