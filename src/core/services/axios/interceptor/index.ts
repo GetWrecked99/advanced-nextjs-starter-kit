@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-import { clearCookieStorage, getCookieStorageItem } from '@core/services/storages/cookies-storage'
+import { deleteCookie, getCookie } from 'cookies-next'
 
 const axiosInterceptorInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASEURL
@@ -16,7 +15,7 @@ axiosInterceptorInstance.interceptors.response.use(
         // Handle response errors here
         try {
             if (error.response.status === 401) {
-                clearCookieStorage() // Clear current user cookies
+                deleteCookie('token') // Clear current user token cookie
                 window.location.href = '/' // Navigates the user to the auth page (login page or ...)
             }
             const expectedError = error.response && error.response.state >= 400 && error.response.status < 500
@@ -41,7 +40,7 @@ axiosInterceptorInstance.interceptors.response.use(
 axiosInterceptorInstance.interceptors.request.use(
     (config) => {
         // Modify the request config here (add headers, authentication tokens)
-        const accessToken = getCookieStorageItem('token')
+        const accessToken = getCookie('token')
 
         // If token is present add it to request's Authorization Header
         if (accessToken) {
