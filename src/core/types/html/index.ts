@@ -1,5 +1,3 @@
-import { type AnchorHTMLAttributes, type DetailedHTMLProps } from 'react'
-
-type TAnchorElementType = DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+type TAnchorElementType = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
 
 export type { TAnchorElementType }
