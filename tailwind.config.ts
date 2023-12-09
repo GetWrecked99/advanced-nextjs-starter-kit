@@ -4,10 +4,7 @@ const config: Config = {
     important: true,
     content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
     theme: {},
-    plugins: [],
-    corePlugins: {
-        preflight: false
-    }
+    plugins: []
 }
 
 export default config

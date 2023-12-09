@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 import { RootProvider } from '@partials/providers/RootProvider'
 
+import { inter } from '@core/configs/fonts'
 import { type TWrapperWithChildrenType } from '@core/types/common/wrapper-with-children'
-import { inter } from '@core/utils/fonts'
 
-import '../styles/globals.css'
+import '@styles/globals.css'
 
 export const metadata: Metadata = {
     title: 'Advanced Next.js Starter Kit',
