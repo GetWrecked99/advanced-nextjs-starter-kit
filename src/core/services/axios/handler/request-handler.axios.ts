@@ -13,4 +13,4 @@ const axiosRequestHandler =
         }
     }
 
-export { axiosRequestHandler }
+export default axiosRequestHandler

@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { deleteCookie, getCookie } from 'cookies-next'
+import qs from 'qs'
 
 const axiosInterceptorInstance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_BASEURL
+    baseURL: process.env.NEXT_PUBLIC_BASEURL,
+    paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat', skipNulls: true })
 })
 
 // Response interceptor
@@ -54,4 +56,4 @@ axiosInterceptorInstance.interceptors.request.use(
     }
 )
 
-export { axiosInterceptorInstance }
+export default axiosInterceptorInstance

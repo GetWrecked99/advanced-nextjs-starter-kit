@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-type TCriticalAnyType = any
+import type TCriticalAnyType from './critical-any.types'
 
 export type { TCriticalAnyType }

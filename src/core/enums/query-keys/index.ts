@@ -1,5 +1,3 @@
-enum QueryKeysEnum {
-    ExampleList = 'get-all-examples'
-}
+import QueryKeysEnum from './query-keys.enums'
 
 export { QueryKeysEnum }

@@ -1,5 +1,3 @@
-const Routes = {
-    Root: '/'
-}
+import Routes from './routes.constants'
 
 export { Routes }

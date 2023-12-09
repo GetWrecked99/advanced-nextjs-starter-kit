@@ -1,7 +1,3 @@
-import { type ReactNode } from 'react'
-
-type TWrapperWithChildrenType = {
-    children: ReactNode
-}
+import type TWrapperWithChildrenType from './wrapper-with-children.types'
 
 export type { TWrapperWithChildrenType }
