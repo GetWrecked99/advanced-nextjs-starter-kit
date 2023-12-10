@@ -1,6 +1,8 @@
-import { type AxiosError, type AxiosResponse } from 'axios'
+import { type AxiosError, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 
-type TRequestType<TParam, TResponse> = (params?: TParam) => Promise<AxiosResponse<TResponse>>
+interface TAxiosRequestConfigType<TParam> extends Omit<AxiosRequestConfig, 'params'> {
+    params?: TParam
+}
 
 type TSuccessResponseType<TValue> = {
     code: 'success'
@@ -12,6 +14,8 @@ type TErrorResponseType<TError = AxiosError> = {
     error: TError
 }
 
+type TRequestType<TParam, TResponse> = (config?: TAxiosRequestConfigType<TParam>) => Promise<AxiosResponse<TResponse>>
+
 type TResponseType<TValue, TError> = Promise<TSuccessResponseType<TValue> | TErrorResponseType<TError>>
 
-export type { TRequestType, TResponseType }
+export type { TAxiosRequestConfigType, TRequestType, TResponseType }

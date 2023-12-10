@@ -1,3 +1,3 @@
-import { type TRequestType, type TResponseType } from './types/request-handler.types'
+import { type TAxiosRequestConfigType, type TRequestType, type TResponseType } from './types/request-handler.types'
 
-export type { TRequestType, TResponseType }
+export type { TRequestType, TResponseType, TAxiosRequestConfigType }

@@ -1,10 +1,10 @@
 import { axiosInterceptor, axiosRequestHandler } from '@core/services/axios'
 import { type TExampleType } from '@core/types/api/example'
 
-import type TParams from './params.types'
+import type TParamsType from './params.types'
 
-const getAllExamplesQueryFn = axiosRequestHandler<TParams, TExampleType[]>((params) =>
-    axiosInterceptor.get('api/v1/example', { params })
+const getAllExamplesQueryFn = axiosRequestHandler<TParamsType, TExampleType[]>((config) =>
+    axiosInterceptor.get('api/v1/example', config)
 )
 
 export default getAllExamplesQueryFn
