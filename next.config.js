@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
+
+const withNextIntl = require('next-intl/plugin')('./src/core/configs/i18n/i18n.configs.ts')
 
 const nextConfig = {
     webpack(config) {
@@ -35,4 +38,4 @@ const nextConfig = {
     }
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig)
