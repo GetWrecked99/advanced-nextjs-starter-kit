@@ -3,10 +3,7 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
-        "wix.vscode-import-cost",
         "yoavbls.pretty-ts-errors",
-        "cardinal90.multi-cursor-case-preserve",
-        "meganrogge.template-string-converter",
         "streetsidesoftware.code-spell-checker"
     ]
 }
