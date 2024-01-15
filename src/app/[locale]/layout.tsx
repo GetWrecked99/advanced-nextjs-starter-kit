@@ -1,11 +1,14 @@
 import { type ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { useMessages, useNow, useTimeZone } from 'next-intl'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 import { RootProvider } from '@partials/providers/RootProvider'
 
 import { inter } from '@core/configs/fonts'
 import { LOCALES } from '@core/configs/i18n'
+import { type TLocalesType } from '@core/configs/i18n'
 
 import '@styles/globals.css'
 
@@ -16,16 +19,27 @@ export const metadata: Metadata = {
 
 interface IRootLayoutProps {
     children: ReactNode
-    params: { locale: string }
+    params: { locale: TLocalesType }
 }
 
+export const generateStaticParams = () => LOCALES.map((locale) => ({ locale }))
+
 const RootLayout = ({ children, params: { locale } }: IRootLayoutProps) => {
+    unstable_setRequestLocale(locale)
+
+    // Passing these because we are using NextIntlClientProvider in a client component. It does not automatically get these from a server component.
+    const messages = useMessages()
+    const timezone = useTimeZone()
+    const now = useNow()
+
     if (!LOCALES.includes(locale)) notFound()
 
     return (
         <html lang={locale}>
             <body className={inter.className}>
-                <RootProvider>{children}</RootProvider>
+                <RootProvider locale={locale} messages={messages} timezone={timezone} now={now}>
+                    {children}
+                </RootProvider>
             </body>
         </html>
     )

@@ -1,14 +1,15 @@
 'use client'
 
 import { useState } from 'react'
+import { NextIntlClientProvider } from 'next-intl'
 import NextAdapterApp from 'next-query-params/app'
 import { QueryParamProvider } from 'use-query-params'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
-import { type TWrapperWithChildrenType } from '@core/types/common/wrapper-with-children'
+import { type IRootProviderProps } from './resources'
 
-const RootProvider = ({ children }: TWrapperWithChildrenType) => {
+const RootProvider = ({ children, locale, messages }: IRootProviderProps) => {
     const [queryClient] = useState(
         () =>
             new QueryClient({
@@ -24,8 +25,10 @@ const RootProvider = ({ children }: TWrapperWithChildrenType) => {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <QueryParamProvider adapter={NextAdapterApp}>{children}</QueryParamProvider>
-            <ReactQueryDevtools initialIsOpen={false} buttonPosition='bottom-left' />
+            <NextIntlClientProvider locale={locale} messages={messages}>
+                <QueryParamProvider adapter={NextAdapterApp}>{children}</QueryParamProvider>
+                <ReactQueryDevtools initialIsOpen={false} buttonPosition='bottom-left' />
+            </NextIntlClientProvider>
         </QueryClientProvider>
     )
 }

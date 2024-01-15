@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
 
 const LandingTemplate = () => {
-    const t = useTranslations('Landing')
+    const t = useTranslations('LandingTemplate')
 
     return (
         <div className='h-screen grid place-items-center bg-cyan-200'>

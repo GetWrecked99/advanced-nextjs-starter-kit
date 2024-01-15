@@ -1,5 +1,8 @@
 {
-    "Landing": {
+    "Common": {
+        "more": "mehr"
+    },
+    "LandingTemplate": {
         "welcome": "Hallo, Willkommen {user}"
     }
 }
