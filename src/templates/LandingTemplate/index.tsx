@@ -1,6 +1,11 @@
 import { useTranslations } from 'next-intl'
 
 const LandingTemplate = () => {
+    /**
+     * @Author: Get Wrecked
+     * @Date: 2024-04-28 11:27:13
+     * @Desc: Based on https://next-intl-docs.vercel.app/docs/environments/server-client-components#using-internationalization-in-server-components
+     */
     const t = useTranslations('LandingTemplate')
 
     return (
